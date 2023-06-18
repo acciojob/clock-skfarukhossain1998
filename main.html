@@ -1,16 +1,35 @@
 <!DOCTYPE html>
-
 <html>
-
 <head>
-	<link rel="stylesheet" href="styles.css">
+  <title>Clock</title>
+  <style>
+    #timer {
+      font-size: 24px;
+      font-weight: bold;
+    }
+  </style>
 </head>
-
 <body>
-	<!-- the entire body must be written by student -->
-    <script type="text/javascript" src="./script.js">
-</script>
+  <p id="timer"></p>
 
+  <script>
+    function updateClock() {
+      var timerElement = document.getElementById("timer");
+      var currentDate = new Date();
+
+      // Format the time and date
+      var time = currentDate.toLocaleTimeString();
+      var date = currentDate.toLocaleDateString();
+
+      // Update the timer element with the current time and date
+      timerElement.textContent =  date+", "+time;
+    }
+
+    // Update the clock immediately
+    updateClock();
+
+    // Update the clock every second
+    setInterval(updateClock, 1000);
+  </script>
 </body>
-
 </html>
